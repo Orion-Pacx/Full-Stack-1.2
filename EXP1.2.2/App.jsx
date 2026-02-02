@@ -1,104 +1,167 @@
-const products = [
-  { id: 1, name: "Wireless Headphones Pro", category: "Electronics", price: 129.99, img: "🎧", rating: 4.5 },
-  { id: 2, name: "Smart Watch Ultra", category: "Electronics", price: 299.99, img: "⌚", rating: 4.8 },
-  { id: 3, name: "Bluetooth Speaker X1", category: "Electronics", price: 89.99, img: "🔊", rating: 4.2 },
-  { id: 4, name: "Gaming Mouse RGB", category: "Electronics", price: 59.99, img: "🖱️", rating: 4.7 },
-  { id: 5, name: "USB-C Fast Charger", category: "Electronics", price: 24.99, img: "🔌", rating: 4.0 },
-  { id: 6, name: "4K Webcam Pro", category: "Electronics", price: 79.99, img: "📹", rating: 4.3 },
-  { id: 7, name: "Power Bank 20000mAh", category: "Electronics", price: 39.99, img: "🔋", rating: 4.1 },
-  { id: 8, name: "Smart LED Lamp", category: "Electronics", price: 49.99, img: "💡", rating: 4.6 },
-  { id: 9, name: "Wireless Keyboard", category: "Electronics", price: 69.99, img: "⌨️", rating: 4.4 },
-  { id: 10, name: "iPhone 16 Case", category: "Electronics", price: 19.99, img: "📱", rating: 4.2 },
-  { id: 11, name: "True Wireless Earbuds", category: "Electronics", price: 29.99, img: "🎵", rating: 4.0 },
-  { id: 12, name: "WiFi Smart Bulb", category: "Electronics", price: 34.99, img: "💡", rating: 4.5 },
-  { id: 13, name: "Cotton T-Shirt White", category: "Clothing", price: 24.99, img: "👕", rating: 4.3 },
-  { id: 14, name: "Slim Fit Denim Jeans", category: "Clothing", price: 59.99, img: "👖", rating: 4.6 },
-  { id: 15, name: "Leather Jacket Black", category: "Clothing", price: 199.99, img: "🧥", rating: 4.8 },
-  { id: 16, name: "Air Max Sneakers", category: "Clothing", price: 89.99, img: "👟", rating: 4.7 },
-  { id: 17, name: "Oversized Hoodie Grey", category: "Clothing", price: 49.99, img: "👕", rating: 4.5 },
-  { id: 18, name: "Floral Summer Dress", category: "Clothing", price: 39.99, img: "👗", rating: 4.4 },
-  { id: 19, name: "Baseball Cap Black", category: "Clothing", price: 19.99, img: "🧢", rating: 4.2 },
-  { id: 20, name: "Running Shoes Pro", category: "Clothing", price: 79.99, img: "👟", rating: 4.6 },
-  { id: 21, name: "Wool Winter Coat", category: "Clothing", price: 149.99, img: "🧥", rating: 4.7 },
-  { id: 22, name: "Premium Socks Pack", category: "Clothing", price: 12.99, img: "🧦", rating: 4.1 },
-  { id: 23, name: "Ceramic Coffee Mug", category: "Home", price: 15.99, img: "☕", rating: 4.4 },
-  { id: 24, name: "Porcelain Dinner Plate", category: "Home", price: 22.99, img: "🍽️", rating: 4.3 },
-  { id: 25, name: "Velvet Cushion Cover", category: "Home", price: 19.99, img: "🛋️", rating: 4.5 },
-  { id: 26, name: "Modern Wall Clock", category: "Home", price: 35.99, img: "🕐", rating: 4.2 },
-  { id: 27, name: "Kitchen Towel Set", category: "Home", price: 9.99, img: "🧽", rating: 4.0 },
-  { id: 28, name: "Glass Vase Large", category: "Home", price: 29.99, img: "🪴", rating: 4.6 },
-  { id: 29, name: "Cotton Bed Sheets", category: "Home", price: 49.99, img: "🛏️", rating: 4.5 },
-  { id: 30, name: "Fleece Throw Blanket", category: "Home", price: 39.99, img: "🛌", rating: 4.7 },
-  { id: 31, name: "Wooden Picture Frame", category: "Home", price: 24.99, img: "🖼️", rating: 4.3 },
-  { id: 32, name: "Marble Coaster Set", category: "Home", price: 14.99, img: "🥃", rating: 4.1 },
-  { id: 33, name: "A5 Spiral Notebook", category: "Stationery", price: 12.99, img: "📓", rating: 4.4 },
-  { id: 34, name: "Gel Pen Set 10pcs", category: "Stationery", price: 8.99, img: "✏️", rating: 4.2 },
-  { id: 35, name: "Neon Highlighter Set", category: "Stationery", price: 6.99, img: "🖍️", rating: 4.0 },
-  { id: 36, name: "2026 Premium Planner", category: "Stationery", price: 24.99, img: "📅", rating: 4.6 },
-  { id: 37, name: "Super Sticky Notes", category: "Stationery", price: 4.99, img: "📌", rating: 4.3 },
-  { id: 38, name: "Permanent Marker Set", category: "Stationery", price: 15.99, img: "🖊️", rating: 4.5 },
-  { id: 39, name: "Professional Sketchbook", category: "Stationery", price: 19.99, img: "📖", rating: 4.7 },
-  { id: 40, name: "Canvas Pencil Case", category: "Stationery", price: 9.99, img: "✏️", rating: 4.1 },
-  { id: 41, name: "Leather Wallet Brown", category: "Accessories", price: 45.99, img: "💳", rating: 4.6 },
-  { id: 42, name: "Polarized Sunglasses", category: "Accessories", price: 29.99, img: "🕶️", rating: 4.4 },
-  { id: 43, name: "Premium Watch Strap", category: "Accessories", price: 19.99, img: "⌚", rating: 4.3 },
-  { id: 44, name: "Metal Keychain Set", category: "Accessories", price: 7.99, img: "🔑", rating: 4.2 },
-  { id: 45, name: "Genuine Leather Belt", category: "Accessories", price: 34.99, img: "👔", rating: 4.5 },
-  { id: 46, name: "React Cookbook 2026", category: "Books", price: 39.99, img: "📚", rating: 4.8 },
-  { id: 47, name: "JavaScript Mastery", category: "Books", price: 29.99, img: "📖", rating: 4.7 },
-  { id: 48, name: "CSS Grid Advanced", category: "Books", price: 34.99, img: "📚", rating: 4.6 },
-  { id: 49, name: "Node.js Complete Guide", category: "Books", price: 44.99, img: "📘", rating: 4.9 },
-  { id: 50, name: "Python Data Science", category: "Books", price: 49.99, img: "📗", rating: 4.8 }
-];
+const { useState, useEffect, useCallback } = React;
 
-// DOM references
-const productsGrid = document.getElementById("productsGrid");
-const filterSelect = document.getElementById("filterSelect");
-const sortSelect = document.getElementById("sortSelect");
-const totalSpan = document.getElementById("total");
+function App() {
 
-// Render products
-function renderProducts(list) {
-  productsGrid.innerHTML = "";
-  list.forEach(p => {
-    const card = document.createElement("div");
-    card.className = "product-card";
+  /* ================= DATA ================= */
+  const productsData = [
+    // Electronics (12)
+    { id: 1, name: "Wireless Headphones", price: 129.99, category: "Electronics", rating: 5, stock: "In Stock", emoji: "🎧" },
+    { id: 2, name: "Bluetooth Speaker", price: 89.99, category: "Electronics", rating: 4, stock: "In Stock", emoji: "🔊" },
+    { id: 3, name: "Smart Watch", price: 199.99, category: "Electronics", rating: 5, stock: "Out of Stock", emoji: "⌚" },
+    { id: 4, name: "Laptop Stand", price: 39.99, category: "Electronics", rating: 4, stock: "In Stock", emoji: "💻" },
+    { id: 5, name: "USB-C Hub", price: 49.99, category: "Electronics", rating: 4, stock: "In Stock", emoji: "🔌" },
+    { id: 6, name: "Gaming Mouse", price: 59.99, category: "Electronics", rating: 5, stock: "In Stock", emoji: "🖱️" },
+    { id: 7, name: "Mechanical Keyboard", price: 149.99, category: "Electronics", rating: 5, stock: "In Stock", emoji: "⌨️" },
+    { id: 8, name: "Power Bank", price: 29.99, category: "Electronics", rating: 4, stock: "In Stock", emoji: "🔋" },
+    { id: 9, name: "Webcam HD", price: 69.99, category: "Electronics", rating: 4, stock: "Out of Stock", emoji: "📷" },
+    { id: 10, name: "Noise Cancelling Earbuds", price: 99.99, category: "Electronics", rating: 5, stock: "In Stock", emoji: "🎶" },
+    { id: 11, name: "VR Headset", price: 299.99, category: "Electronics", rating: 4, stock: "In Stock", emoji: "🥽" },
+    { id: 12, name: "Smart Bulb", price: 24.99, category: "Electronics", rating: 4, stock: "In Stock", emoji: "💡" },
 
-    card.innerHTML = `
-      <div class="card-image">${p.img}</div>
-      <h3>${p.name}</h3>
-      <div class="category">${p.category}</div>
-      <div class="price">$${p.price.toFixed(2)}</div>
-      <div class="rating">${'★'.repeat(Math.floor(p.rating))}${'☆'.repeat(5-Math.floor(p.rating))} ${p.rating}</div>
-    `;
-    productsGrid.appendChild(card);
-  });
-  totalSpan.textContent = list.length;
-}
+    // Clothing (10)
+    { id: 13, name: "Graphic T-Shirt", price: 19.99, category: "Clothing", rating: 4, stock: "In Stock", emoji: "👕" },
+    { id: 14, name: "Hoodie", price: 49.99, category: "Clothing", rating: 5, stock: "In Stock", emoji: "🧥" },
+    { id: 15, name: "Denim Jeans", price: 59.99, category: "Clothing", rating: 4, stock: "In Stock", emoji: "👖" },
+    { id: 16, name: "Sneakers", price: 89.99, category: "Clothing", rating: 5, stock: "Out of Stock", emoji: "👟" },
+    { id: 17, name: "Baseball Cap", price: 14.99, category: "Clothing", rating: 4, stock: "In Stock", emoji: "🧢" },
+    { id: 18, name: "Jacket", price: 99.99, category: "Clothing", rating: 5, stock: "In Stock", emoji: "🥼" },
+    { id: 19, name: "Formal Shirt", price: 39.99, category: "Clothing", rating: 4, stock: "In Stock", emoji: "👔" },
+    { id: 20, name: "Shorts", price: 24.99, category: "Clothing", rating: 3, stock: "In Stock", emoji: "🩳" },
+    { id: 21, name: "Socks Pack", price: 9.99, category: "Clothing", rating: 4, stock: "In Stock", emoji: "🧦" },
+    { id: 22, name: "Sweater", price: 44.99, category: "Clothing", rating: 5, stock: "In Stock", emoji: "🧶" },
 
-// Filter + sort
-function updateProducts() {
-  let filtered = [...products];
+    // Home (10)
+    { id: 23, name: "Coffee Mug", price: 12.99, category: "Home", rating: 4, stock: "In Stock", emoji: "☕" },
+    { id: 24, name: "Wall Clock", price: 29.99, category: "Home", rating: 4, stock: "In Stock", emoji: "🕒" },
+    { id: 25, name: "Table Lamp", price: 39.99, category: "Home", rating: 5, stock: "In Stock", emoji: "💡" },
+    { id: 26, name: "Throw Pillow", price: 19.99, category: "Home", rating: 4, stock: "In Stock", emoji: "🛏️" },
+    { id: 27, name: "Area Rug", price: 79.99, category: "Home", rating: 5, stock: "Out of Stock", emoji: "🧶" },
+    { id: 28, name: "Candle Set", price: 24.99, category: "Home", rating: 4, stock: "In Stock", emoji: "🕯️" },
+    { id: 29, name: "Bookshelf", price: 149.99, category: "Home", rating: 5, stock: "In Stock", emoji: "📚" },
+    { id: 30, name: "Plant Pot", price: 14.99, category: "Home", rating: 4, stock: "In Stock", emoji: "🪴" },
+    { id: 31, name: "Kitchen Timer", price: 9.99, category: "Home", rating: 3, stock: "In Stock", emoji: "⏲️" },
+    { id: 32, name: "Cutlery Set", price: 49.99, category: "Home", rating: 5, stock: "In Stock", emoji: "🍴" },
 
-  const filterValue = filterSelect.value;
-  if (filterValue !== "all") filtered = filtered.filter(p => p.category === filterValue);
+    // Stationery (8)
+    { id: 33, name: "Notebook", price: 4.99, category: "Stationery", rating: 4, stock: "In Stock", emoji: "📓" },
+    { id: 34, name: "Ball Pen", price: 1.99, category: "Stationery", rating: 4, stock: "In Stock", emoji: "🖊️" },
+    { id: 35, name: "Highlighter Set", price: 6.99, category: "Stationery", rating: 5, stock: "In Stock", emoji: "🖍️" },
+    { id: 36, name: "Stapler", price: 7.99, category: "Stationery", rating: 4, stock: "In Stock", emoji: "📎" },
+    { id: 37, name: "Sticky Notes", price: 3.99, category: "Stationery", rating: 4, stock: "In Stock", emoji: "🗒️" },
+    { id: 38, name: "File Folder", price: 5.99, category: "Stationery", rating: 3, stock: "In Stock", emoji: "📁" },
+    { id: 39, name: "Marker Pack", price: 8.99, category: "Stationery", rating: 5, stock: "In Stock", emoji: "🖌️" },
+    { id: 40, name: "Desk Organizer", price: 14.99, category: "Stationery", rating: 4, stock: "In Stock", emoji: "🗂️" },
 
-  const sortValue = sortSelect.value;
-  filtered.sort((a,b) => {
-    switch(sortValue){
-      case "name": return a.name.localeCompare(b.name);
-      case "price-low": return a.price - b.price;
-      case "price-high": return b.price - a.price;
-      case "rating": return b.rating - a.rating;
-      default: return 0;
+    // Accessories (5)
+    { id: 41, name: "Sunglasses", price: 29.99, category: "Accessories", rating: 4, stock: "In Stock", emoji: "🕶️" },
+    { id: 42, name: "Wallet", price: 34.99, category: "Accessories", rating: 5, stock: "In Stock", emoji: "👛" },
+    { id: 43, name: "Belt", price: 19.99, category: "Accessories", rating: 4, stock: "In Stock", emoji: "🧷" },
+    { id: 44, name: "Backpack", price: 59.99, category: "Accessories", rating: 5, stock: "In Stock", emoji: "🎒" },
+    { id: 45, name: "Watch Strap", price: 14.99, category: "Accessories", rating: 4, stock: "In Stock", emoji: "⌚" },
+
+    // Books (5)
+    { id: 46, name: "React Guide", price: 24.99, category: "Books", rating: 5, stock: "In Stock", emoji: "📘" },
+    { id: 47, name: "JavaScript Basics", price: 19.99, category: "Books", rating: 4, stock: "In Stock", emoji: "📗" },
+    { id: 48, name: "CSS Mastery", price: 21.99, category: "Books", rating: 4, stock: "In Stock", emoji: "📙" },
+    { id: 49, name: "HTML Handbook", price: 14.99, category: "Books", rating: 3, stock: "In Stock", emoji: "📕" },
+    { id: 50, name: "Web Design UX", price: 29.99, category: "Books", rating: 5, stock: "In Stock", emoji: "📓" }
+  ];
+
+  /* ================= STATE ================= */
+  const [filterBy, setFilterBy] = useState("all");
+  const [sortBy, setSortBy] = useState("name");
+  const [products, setProducts] = useState(productsData);
+  const [openFilter, setOpenFilter] = useState(false);
+  const [openSort, setOpenSort] = useState(false);
+
+  /* ================= LOGIC ================= */
+  const applyFilters = useCallback(() => {
+    let data = [...productsData];
+
+    if (filterBy !== "all") {
+      data = data.filter(p => p.category === filterBy);
     }
-  });
 
-  renderProducts(filtered);
+    if (sortBy === "name") data.sort((a,b)=>a.name.localeCompare(b.name));
+    if (sortBy === "price-low") data.sort((a,b)=>a.price-b.price);
+    if (sortBy === "price-high") data.sort((a,b)=>b.price-a.price);
+    if (sortBy === "rating") data.sort((a,b)=>b.rating-a.rating);
+
+    setProducts(data);
+  }, [filterBy, sortBy]);
+
+  useEffect(() => { applyFilters(); }, [applyFilters]);
+
+  /* DOM sync for total count */
+  useEffect(() => {
+    const el = document.getElementById("total");
+    if (el) el.textContent = products.length;
+  }, [products]);
+
+  /* Click outside */
+  useEffect(() => {
+    const handler = () => { setOpenFilter(false); setOpenSort(false); };
+    document.addEventListener("click", handler);
+    return () => document.removeEventListener("click", handler);
+  }, []);
+
+  const stars = n => "★★★★★☆☆☆☆☆".slice(5-n,10-n);
+
+  /* ================= UI ================= */
+  return React.createElement("div",{className:"app"},
+
+    /* Hero */
+    React.createElement("section",{className:"hero"},
+      React.createElement("h1",null,"🛍️ Product Filter"),
+      React.createElement("p",null,"Browse, filter and sort products dynamically")
+    ),
+
+    /* Stats */
+    React.createElement("div",{className:"stats"},
+      React.createElement("div",{className:"stat"},["Total Products: ",React.createElement("span",{id:"total"},products.length)]),
+      React.createElement("div",{className:"stat"},"Categories: 6"),
+      React.createElement("div",{className:"stat"},"Avg Rating: 4.4 ★")
+    ),
+
+    /* Controls */
+    React.createElement("div",{className:"controls"},
+
+      /* Filter dropdown */
+      React.createElement("div",{className:"dropdown",onClick:e=>e.stopPropagation()},
+        React.createElement("button",{className:"dropdown-btn",onClick:()=>setOpenFilter(!openFilter)},"Filter"),
+        openFilter && React.createElement("div",{className:"dropdown-menu"},
+          ["all","Electronics","Clothing","Home","Stationery","Accessories","Books"]
+            .map(c=>React.createElement("div",{key:c,onClick:()=>setFilterBy(c)},c==="all"?"All":c))
+        )
+      ),
+
+      /* Sort dropdown */
+      React.createElement("div",{className:"dropdown",onClick:e=>e.stopPropagation()},
+        React.createElement("button",{className:"dropdown-btn",onClick:()=>setOpenSort(!openSort)},"Sort"),
+        openSort && React.createElement("div",{className:"dropdown-menu"},
+          React.createElement("div",{onClick:()=>setSortBy("name")},"Name A–Z"),
+          React.createElement("div",{onClick:()=>setSortBy("price-low")},"Price Low→High"),
+          React.createElement("div",{onClick:()=>setSortBy("price-high")},"Price High→Low"),
+          React.createElement("div",{onClick:()=>setSortBy("rating")},"Rating High→Low")
+        )
+      )
+    ),
+
+    /* Grid */
+    React.createElement("div",{className:"grid"},
+      products.map(p =>
+        React.createElement("div",{className:"card",key:p.id},
+          React.createElement("div",{className:"emoji"},p.emoji),
+          React.createElement("h3",null,p.name),
+          React.createElement("p",{className:"price"},"$"+p.price),
+          React.createElement("span",{className:"badge"},p.category),
+          React.createElement("div",{className:"stars"},stars(p.rating)),
+          React.createElement("small",null,p.stock)
+        )
+      )
+    )
+  );
 }
 
-filterSelect.addEventListener("change", updateProducts);
-sortSelect.addEventListener("change", updateProducts);
-
-// Initial render
-renderProducts(products);
+ReactDOM.createRoot(document.getElementById("root"))
+  .render(React.createElement(App));
