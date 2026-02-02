@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  background: #f5f7fb;
+  font-family: system-ui, sans-serif;
+}
+
+.app-container {
+  padding: 30px;
+}
+
+.hero {
+  background: linear-gradient(135deg,#667eea,#764ba2);
+  color: white;
+  padding: 40px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.1);
+  margin-bottom: 30px;
+}
+
+.toolbar button {
+  padding: 8px 14px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.toolbar button.active {
+  background: #667eea;
+  color: white;
+}
+
+.color-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: none;
+}
+
+.canvas-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+svg {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+  cursor: crosshair;
+  max-width: 100%;
+  height: auto;
+}
+
+.stats {
+  display: flex;
+  gap: 20px;
+  font-weight: 600;
+}
+
+@media (max-width:768px) {
+  .toolbar {
+    flex-direction: column;
+  }
+}
