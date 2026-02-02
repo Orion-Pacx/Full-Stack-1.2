@@ -2,44 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Live Character Counter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXP1.2.1 - Live Character Counter</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div class="app-wrapper">
-    <h2>Live Character Counter</h2>
+  <div id="root">
+    <div class="app-wrapper" id="app">
+      <div class="header">
+        <i class="fas fa-font"></i>
+        <h1>Live Character Counter</h1>
+        <div class="status" id="status">Ready</div>
+      </div>
+      
+      <div class="input-container">
+        <textarea 
+          id="text" 
+          rows="6" 
+          placeholder="Craft your masterpiece... (100 chars max)"
+        ></textarea>
+        <div class="char-limit" id="count">0 / 100</div>
+      </div>
 
-    <textarea id="text" rows="5" cols="40" placeholder="Type something amazing..."></textarea>
-    <p id="count">0 / 100</p>
+      <div class="metrics">
+        <div class="metric">
+          <i class="fas fa-hashtag"></i>
+          <span id="words">0</span> words
+        </div>
+        <div class="metric">
+          <i class="fas fa-clock"></i>
+          <span id="time">0</span>s typing
+        </div>
+      </div>
 
-    <div class="progress-bar">
-      <div id="progress" class="progress"></div>
+      <div class="progress-container">
+        <div class="progress-label">
+          <span>Progress</span>
+          <span id="percent">0%</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progress" class="progress"></div>
+        </div>
+      </div>
+
+      <div class="particles" id="particles"></div>
     </div>
   </div>
 
-  <script>
-    const text = document.getElementById("text");
-    const count = document.getElementById("count");
-    const progress = document.getElementById("progress");
-    const limit = 100;
-
-    text.addEventListener("input", () => {
-      const len = text.value.length;
-      count.innerText = `${len} / ${limit}`;
-
-      // Update color
-      if(len === limit) count.style.color = "#ff4d4f"; // red
-      else if(len > limit * 0.7) count.style.color = "#faad14"; // warning
-      else count.style.color = "#333"; // normal
-
-      // Update progress bar
-      progress.style.width = `${(len / limit) * 100}%`;
-
-      // Animate textarea border
-      if(len === limit) text.style.borderColor = "#ff4d4f";
-      else if(len > limit * 0.7) text.style.borderColor = "#faad14";
-      else text.style.borderColor = "#40a9ff";
-    });
-  </script>
+  <script src="App.jsx" type="module"></script>
 </body>
 </html>
