@@ -12,38 +12,55 @@
   <div id="root">
     <div class="app-wrapper">
       <div class="header">
-        <i class="fas fa-filter"></i>
-        <h1>Dynamic Product Filter</h1>
+        <i class="fas fa-store"></i>
+        <h1>Product Filter</h1>
         <div class="stats">
-          <span id="total">8</span> products
+          <span id="total">50</span> products
         </div>
       </div>
 
       <div class="controls">
-        <div class="filter-group">
-          <label>Sort By</label>
-          <div class="dropdown">
-            <button class="dropdown-btn" id="sortBtn">
-              <span id="sortLabel">All Products</span>
+        <div class="control-group">
+          <label>Filter by:</label>
+          <div class="dropdown" id="filterDropdown">
+            <button class="dropdown-btn">
+              <span id="filterLabel">All Products</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-menu" id="filterMenu">
+              <div data-filter="all">All Products</div>
+              <div data-filter="Electronics">Electronics</div>
+              <div data-filter="Clothing">Clothing</div>
+              <div data-filter="Home">Home</div>
+              <div data-filter="Stationery">Stationery</div>
+              <div data-filter="Accessories">Accessories</div>
+              <div data-filter="Books">Books</div>
+            </div>
+          </div>
+
+          <label>Sort by:</label>
+          <div class="dropdown" id="sortDropdown">
+            <button class="dropdown-btn">
+              <span id="sortLabel">Name (A-Z)</span>
               <i class="fas fa-chevron-down"></i>
             </button>
             <div class="dropdown-menu" id="sortMenu">
-              <div data-sort="all">All Products</div>
               <div data-sort="name">Name (A-Z)</div>
               <div data-sort="price-low">Price: Low-High</div>
               <div data-sort="price-high">Price: High-Low</div>
-              <div data-sort="category">Category</div>
+              <div data-sort="rating">Rating (High-Low)</div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="products-grid" id="productsGrid">
-        <!-- Products rendered by React -->
-      </div>
+      <div class="products-grid" id="productsGrid"></div>
     </div>
   </div>
 
-  <script src="App.jsx" type="module"></script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel" src="App.jsx"></script>
 </body>
 </html>
