@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Live Character Counter</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<h2>Live Character Counter</h2>
+
+<textarea id="text" rows="5" cols="40" placeholder="Type here..."></textarea>
+<p id="count">0 / 100</p>
+
+<script>
+const text = document.getElementById("text");
+const count = document.getElementById("count");
+const limit = 100;
+
+text.addEventListener("input", () => {
+  count.innerText = text.value.length + " / " + limit;
+  count.style.color = text.value.length === limit ? "red" : "black";
+});
+</script>
+
+</body>
+</html>
