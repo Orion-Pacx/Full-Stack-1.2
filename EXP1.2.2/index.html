@@ -9,58 +9,43 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div id="root">
-    <div class="app-wrapper">
-      <div class="header">
-        <i class="fas fa-store"></i>
-        <h1>Product Filter</h1>
-        <div class="stats">
-          <span id="total">50</span> products
-        </div>
-      </div>
-
-      <div class="controls">
-        <div class="control-group">
-          <label>Filter by:</label>
-          <div class="dropdown" id="filterDropdown">
-            <button class="dropdown-btn">
-              <span id="filterLabel">All Products</span>
-              <i class="fas fa-chevron-down"></i>
-            </button>
-            <div class="dropdown-menu" id="filterMenu">
-              <div data-filter="all">All Products</div>
-              <div data-filter="Electronics">Electronics</div>
-              <div data-filter="Clothing">Clothing</div>
-              <div data-filter="Home">Home</div>
-              <div data-filter="Stationery">Stationery</div>
-              <div data-filter="Accessories">Accessories</div>
-              <div data-filter="Books">Books</div>
-            </div>
-          </div>
-
-          <label>Sort by:</label>
-          <div class="dropdown" id="sortDropdown">
-            <button class="dropdown-btn">
-              <span id="sortLabel">Name (A-Z)</span>
-              <i class="fas fa-chevron-down"></i>
-            </button>
-            <div class="dropdown-menu" id="sortMenu">
-              <div data-sort="name">Name (A-Z)</div>
-              <div data-sort="price-low">Price: Low-High</div>
-              <div data-sort="price-high">Price: High-Low</div>
-              <div data-sort="rating">Rating (High-Low)</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="products-grid" id="productsGrid"></div>
+  <div class="app-container">
+    <div class="header">
+      <i class="fas fa-store"></i>
+      <h1>Product Filter</h1>
+      <div class="stats"><span id="total">0</span> products found</div>
     </div>
+
+    <div class="controls-wrapper">
+      <div class="control-group">
+        <div class="dropdown-container">
+          <label>Filter by Category</label>
+          <select id="filterSelect">
+            <option value="all">All Products</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Home">Home</option>
+            <option value="Stationery">Stationery</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Books">Books</option>
+          </select>
+        </div>
+
+        <div class="dropdown-container">
+          <label>Sort by</label>
+          <select id="sortSelect">
+            <option value="name">Name (A-Z)</option>
+            <option value="price-low">Price: Low → High</option>
+            <option value="price-high">Price: High → Low</option>
+            <option value="rating">Rating (High → Low)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="products-grid" id="productsGrid"></div>
   </div>
 
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script type="text/babel" src="App.jsx"></script>
+  <script src="app.js"></script>
 </body>
 </html>
