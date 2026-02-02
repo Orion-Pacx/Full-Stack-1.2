@@ -1,51 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
   <title>EXP1.2.2 - Dynamic Product Filter</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- React 18 CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+  <!-- Babel (for JSX-like file loading, but App uses createElement only) -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="app-container">
-    <div class="header">
-      <i class="fas fa-store"></i>
-      <h1>Product Filter</h1>
-      <div class="stats"><span id="total">0</span> products found</div>
-    </div>
+  <div id="root"></div>
 
-    <div class="controls-wrapper">
-      <div class="control-group">
-        <div class="dropdown-container">
-          <label>Filter by Category</label>
-          <select id="filterSelect">
-            <option value="all">All Products</option>
-            <option value="Electronics">Electronics</option>
-            <option value="Clothing">Clothing</option>
-            <option value="Home">Home</option>
-            <option value="Stationery">Stationery</option>
-            <option value="Accessories">Accessories</option>
-            <option value="Books">Books</option>
-          </select>
-        </div>
-
-        <div class="dropdown-container">
-          <label>Sort by</label>
-          <select id="sortSelect">
-            <option value="name">Name (A-Z)</option>
-            <option value="price-low">Price: Low → High</option>
-            <option value="price-high">Price: High → Low</option>
-            <option value="rating">Rating (High → Low)</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <div class="products-grid" id="productsGrid"></div>
-  </div>
-
-  <script src="app.js"></script>
+  <script type="text/babel" src="App.jsx"></script>
 </body>
 </html>
